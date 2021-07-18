@@ -1,0 +1,285 @@
+<html>
+    <head>
+        <title>Francisco Alfredo Uribe Sanchez</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="CV Francisco Alfredo Uribe Sanchez, Resume Francisco Alfredo Uribe Sanchez">
+        <meta name="author" content="Francisco Alfredo Uribe Sánchez">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+        <!-- Preloader -->
+        
+        <style>
+        
+
+            body{
+                background-color: #000;
+                
+            }
+
+            .contentCode{
+                /* background-color: #000; */
+                border: none;
+                color: forestgreen;
+                font-family: 'Inconsolata', monospace;
+                font-size: 12px;
+            }
+
+            .personalData{
+                /* background-color: #000; */
+                border: none;
+                color: forestgreen;
+                font-family: 'Inconsolata', monospace;
+                font-size: 12px;
+            }
+
+            .textCommand{
+                background-color: #000;
+                border: none;
+                color: forestgreen;
+                font-family: 'Inconsolata', monospace;
+                font-size: 13px;
+                width: 98%;
+            }
+
+            .textCommand:focus{
+                outline: none;
+            }
+
+
+            .terminal{
+                overflow-y: auto;
+            }
+
+            .labelCode{
+                width: 2%;
+                color: forestgreen;
+                font-family: 'Inconsolata', monospace;
+                font-size: 13px;
+            }
+
+            h2{
+                font-size:14px;
+                font-family: 'Inconsolata', monospace;
+                font-weight: bold;
+            }
+
+            h1{
+                font-size:16px;
+                font-family: 'Inconsolata', monospace;
+                font-weight: bold;
+            }
+
+
+            .loader {
+                width: 100px;
+                height: 80px;
+                position: absolute;
+                top: 0; right: 0; left: 0; bottom: 0;
+                margin: auto;
+            }
+            .loader .image {
+                width: 100px;
+                height: 160px;
+                font-size: 40px;
+                text-align: center;
+                transform-origin: bottom center;
+                animation: 3s rotate infinite;
+                /* opacity: 0; */
+            }
+            .loader span {
+                display: block;
+                width: 100%;
+                text-align: center;
+                position: absolute;
+                bottom: 0;
+                color: white;
+            }
+
+            
+        </style>
+    </head>
+
+    <body >
+        <div id="particles-js"></div>
+        <div class="loader">
+            <div class="image text-white">
+                <i class="fas fa-code"></i>
+            </div>
+            <span></span>
+        </div>
+
+            
+        <div class="row" id="content" style="padding: 10px; display:none">
+            <div class="col-md-12 terminal" >
+                <span class="personalData">
+                    <h1 style='font-size:15px'>Francisco Alfredo Uribe Sanchez CV Console</h1>
+                    <h2><i class="fas fa-envelope"></i> Email: <a href="mailto:alfredo.uribe.sanchez@gmail.com" target="blank">alfredo.uribe.sanchez@gmail.com</a></h2>
+                    <h2><i class="fas fa-phone"></i> Phone: <a href="tel:+524432373943" >+52 44 32 37 39 43</a></h2>
+                    <h2><i class="fas fa-map-pin"></i> Address: <a href="https://www.google.com/maps/@19.6851089,-101.2196657,3a,75y,145.19h,90t/data=!3m7!1e1!3m5!1s8m4wRJno9sIbDOxHmA1j9w!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3D8m4wRJno9sIbDOxHmA1j9w%26cb_client%3Dmaps_sv.tactile.gps%26w%3D203%26h%3D100%26yaw%3D146.78522%26pitch%3D0%26thumbfov%3D100!7i13312!8i6656" target="blank" >Sol Edificio E int 101, Cosmos, 58050, Morelia, Michoacan, Mexico.</a></h2>
+                    <br>Write cv --help to get all the commands<br><br>
+                </span>
+                <span class="contentCode"></span>
+                <label class="labelCode">></label><input type="text" class="textCommand" style="margin-top:30px; margin-bottom:50px" placeholder="Type command here">
+            </div>
+        </div>
+        </div>
+
+
+        
+    
+    </body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/app.js"></script>
+    <!-- <script src="js/lib/stats.js"></script> -->
+    <script>
+        $(document).ready(function(){
+            
+            initialize();
+
+
+            var counter = 0;
+
+            // Start the changing images
+            setInterval(function() {
+                if(counter == 9) { 
+                    counter = 0; 
+                }
+
+                if(counter<9){
+                    changeImage(counter);
+                    
+                }
+
+                
+                counter++;
+            }, 500);
+
+            // Set the percentage off
+            loading();
+
+
+
+
+            $(".textCommand").bind("keypress", function(e){
+                if(e.keyCode==13){
+                    $(".contentCode").append("<b>> " + $(".textCommand").val() + "</b><br>");
+                    
+                    $.ajax({
+                        data: {"command":$(".textCommand").val()},
+                        method: "POST",
+                        url: "libs/commandFunctions.php",
+                        dataType: "json"
+                    }).done(function(data){
+                        try{
+                            if(data.status=="OK"){
+                                $(".contentCode").append(data.message + "<br><br>");
+                                if(data.message=="Reseting"){
+                                    initialize();
+                                }
+                                $(".textCommand").animate({ scrollTop: $('.textCommand').prop("scrollHeight")}, 1000);
+                            }else{
+                                $(".contentCode").append(data.message + "<br><br>");
+                            }
+                        }catch(err){
+                            $(".contentCode").append(err + "<br><br>");
+                        }
+
+                        $(document).scrollTop(($(document).height()));
+                    });
+
+                    $(".textCommand").val("");
+                }
+            })
+
+            
+            
+        });
+
+        function initialize(){
+            $(".contentCode").html("");
+
+            $(".textCommand").focus();
+        }
+
+        $(document).click(function(e) { 
+            // Check for left button
+            if (e.button == 0) {
+                $(".textCommand").focus();
+            }
+        });
+
+        function callCommand(command){
+            $(".textCommand").val(command);
+            var e = $.Event("keypress");
+            e.keyCode = 13;
+            $(".textCommand").trigger(e);
+        }
+
+
+        function changeImage(counter) {
+
+            var images = [
+                '<i class="fab fa-android"></i>',
+                '<i class="fas fa-gamepad"></i>',
+                '<i class="fas fa-headphones"></i>',
+                '<i class="fab fa-angular"></i>',
+                '<i class="fab fa-html5"></i>',
+                '<i class="fab fa-css3"></i>',
+                '<i class="fab fa-js"></i>',
+                '<i class="fab fa-php"></i>',
+                '<i class="fab fa-laravel"></i>'
+            ];
+
+            $(".loader .image").html(""+ images[counter] +"");
+        }
+
+        function loading(){
+            var num = 0;
+
+            for(i=0; i<=50; i++) {
+                setTimeout(function() { 
+                $('.loader span').html(num+'%');
+
+                if(num == 100) {
+                    $("#particles-js").hide();
+                    $("#content").toggle("blind");
+                    setTimeout(function(){
+                        $(".textCommand").focus();
+                    },500);
+                    
+                    $(".loader").remove();
+                }
+                num = num + 4;
+                },i*120);
+            };
+
+        }
+    </script>
+
+    <script>
+        var count_particles, stats, update;
+        stats = new Stats;
+        stats.setMode(0);
+        stats.domElement.style.position = 'absolute';
+        stats.domElement.style.left = '0px';
+        stats.domElement.style.top = '0px';
+        document.body.appendChild(stats.domElement);
+        count_particles = document.querySelector('.js-count-particles');
+        update = function() {
+        stats.begin();
+        stats.end();
+        if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+            count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+        }
+        requestAnimationFrame(update);
+        };
+        requestAnimationFrame(update);
+    </script>
+</html>
