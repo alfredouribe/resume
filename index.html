@@ -3,7 +3,7 @@
         <title>Alfredo Uribe's Resume - Commands Console Version</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Professional information about the whole career, skills, highlights, languages">
+        <meta name="description" content="Web Developer with 8 years of experience in PHP language, designing an dprogramming websites with html5, css3, jquery, javascript, mysql, bootstrap and agile methodologies">
         <meta name="author" content="Francisco Alfredo Uribe Sánchez">
         <meta charset="UTF-8">
         <meta name="keywords" content="Web Developer, PHP Programmer, Angular, JavaScript, CSS, HTML, Ionic, MySQL, Fullstack Developer">
@@ -11,7 +11,7 @@
         <meta property="og:url" content="https://alfredouribe.com/" />
         <meta property="og:type" content="website" /> 
         <meta property="og:title" content="Alfredo Uribe's Resume - Commands Console Version">
-        <meta property="og:description" content="Professional information about the whole career, skills, highlights, languages" />
+        <meta property="og:description" content="Web Developer with 8 years of experience in PHP language, designing and programming websites, ERP, CMS with html5, css3, jquery, javascript, mysql, bootstrap and agile methodologies" />
         <meta property="og:image" content="img/alfredouribe_facebook.png">
         
 
@@ -118,6 +118,38 @@
     </head>
 
     <body >
+
+
+
+
+    <!-- Messenger plugin de chat Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your plugin de chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+        var chatbox = document.getElementById('fb-customer-chat');
+        chatbox.setAttribute("page_id", "413815402454134");
+        chatbox.setAttribute("attribution", "biz_inbox");
+
+        window.fbAsyncInit = function() {
+            FB.init({
+            xfbml            : true,
+            version          : 'v11.0'
+            });
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
         <div id="particles-js"></div>
         <div class="loader">
             <div class="image text-white">
@@ -151,6 +183,8 @@
     <script src="js/particles.js"></script>
     <script src="js/app.js"></script>
     <!-- <script src="js/lib/stats.js"></script> -->
+
+
     <script>
         $(document).ready(function(){
             
