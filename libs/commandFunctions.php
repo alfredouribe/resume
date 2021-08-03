@@ -10,7 +10,7 @@
         case "Cv":
             if(isset($command[1])){
                 switch($command[1]){
-                    case "--help":
+                    case "help":
                         $query = "select * from cv_commands where status=1";
                         $result = $conn->query($query);
                         
