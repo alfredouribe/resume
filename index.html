@@ -60,36 +60,31 @@
             }(document, 'script', 'facebook-jssdk'));
         </script> -->
 
-        <canvas style="position: fixed; opacity: 0.2">
-            
-        </canvas>
 
         <div id="particles-js"></div>
-        <div class="loader">
-            <div class="image text-white">
-                <i class="fas fa-code"></i>
+            <div class="loader">
+                <div class="image text-white">
+                    <i class="fas fa-code"></i>
+                </div>
+                <span></span>
             </div>
-            <span></span>
-        </div>
 
-            
-        <div class="row" id="content" style="padding: 10px; display:none">
-            <div class="col-md-12 terminal" >
-                <span class="personalData">
-                    <h1 style='font-size:15px'>Francisco Alfredo Uribe Sanchez Resume Console</h1>
-                    <h2><i class="fas fa-envelope"></i> Email: <a href="mailto:alfredo.uribe.sanchez@gmail.com" target="blank">alfredo.uribe.sanchez@gmail.com</a></h2>
-                    <h2><i class="fas fa-phone"></i> Phone: <a href="tel:+524432373943" >+52 44 32 37 39 43</a></h2>
-                    <h2><i class="fas fa-map-pin"></i> Address: <a href="https://www.google.com/maps/@19.6851089,-101.2196657,3a,75y,145.19h,90t/data=!3m7!1e1!3m5!1s8m4wRJno9sIbDOxHmA1j9w!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3D8m4wRJno9sIbDOxHmA1j9w%26cb_client%3Dmaps_sv.tactile.gps%26w%3D203%26h%3D100%26yaw%3D146.78522%26pitch%3D0%26thumbfov%3D100!7i13312!8i6656" target="blank" >Sol Edificio E int 101, Cosmos, 58050, Morelia, Michoacan, Mexico.</a></h2>
-                    <br>Write cv help to get all the commands<br><br>
-                </span>
-                <span class="contentCode"></span>
-                <label class="labelCode">></label><input type="text" class="textCommand" style="margin-top:30px; margin-bottom:50px" placeholder="Type command here">
+                
+            <div class="row" id="content" style="padding: 10px; display:none">
+                <div class="col-md-12 terminal" >
+                    <span class="personalData">
+                        <h1 style='font-size:15px' alt="Alfredo Uribe Resume">Francisco Alfredo Uribe Sanchez Resume Console</h1>
+                        <h2><i class="fas fa-envelope"></i> Email: <a href="mailto:alfredo.uribe.sanchez@gmail.com" target="blank" alt="Email">alfredo.uribe.sanchez@gmail.com</a></h2>
+                        <h2><i class="fas fa-phone"></i> Phone: <a href="tel:+524432373943" alt="Phone" >+52 44 32 37 39 43</a></h2>
+                        <h2><i class="fas fa-map-pin"></i> Address: <a href="https://www.google.com/maps/@19.6851089,-101.2196657,3a,75y,145.19h,90t/data=!3m7!1e1!3m5!1s8m4wRJno9sIbDOxHmA1j9w!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3D8m4wRJno9sIbDOxHmA1j9w%26cb_client%3Dmaps_sv.tactile.gps%26w%3D203%26h%3D100%26yaw%3D146.78522%26pitch%3D0%26thumbfov%3D100!7i13312!8i6656" target="blank" >Sol Edificio E int 101, Cosmos, 58050, Morelia, Michoacan, Mexico.</a></h2>
+                        <br>Write <strong>cv help</strong> to get all the commands<br><br>
+                    </span>
+                    <span class="contentCode"></span>
+                    <label class="labelCode">></label><input type="text" class="textCommand" style="margin-top:30px; margin-bottom:50px" placeholder="Type command here">
+                </div>
             </div>
         </div>
-        </div>
 
-
-        
     
     </body>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -130,6 +125,7 @@
 
             $(".textCommand").bind("keypress", function(e){
                 if(e.keyCode==13){
+                    playSound("files/command_sound_2.wav");
                     $(".contentCode").append("<b>> " + $(".textCommand").val() + "</b><br>");
                     
                     $.ajax({
@@ -145,8 +141,13 @@
                                     initialize();
                                 }
                                 $(".textCommand").animate({ scrollTop: $('.textCommand').prop("scrollHeight")}, 1000);
+                                
                             }else{
-                                $(".contentCode").append(data.message + "<br><br>");
+                                setTimeout(function(){
+                                    playSound("files/access_denied.mp3");
+                                    $(".contentCode").append(data.message + "<br><br>");
+                                },1000);
+                                
                             }
                         }catch(err){
                             $(".contentCode").append(err + "<br><br>");
@@ -167,6 +168,8 @@
             $(".contentCode").html("");
 
             $(".textCommand").focus();
+
+            
         }
 
         $(document).click(function(e) { 
@@ -206,21 +209,31 @@
 
             for(i=0; i<=50; i++) {
                 setTimeout(function() { 
-                $('.loader span').html(num+'%');
+                    $('.loader span').html(num+'%');
 
-                if(num == 100) {
-                    $("#particles-js").hide();
-                    $("#content").toggle("blind");
-                    setTimeout(function(){
-                        $(".textCommand").focus();
-                    },500);
-                    
-                    $(".loader").remove();
-                }
-                num = num + 4;
+                    if(num == 100) {
+                        $("#particles-js").hide();
+                        $("#content").toggle("blind");
+                        setTimeout(function(){
+                            $(".textCommand").focus();
+                            
+                        },500);
+                        
+                        $(".loader").remove();
+                    }
+                    num = num + 5;
                 },i*120);
-            };
+            }
 
+        }
+
+        function playSound(path) {
+            // audio supported?
+            if (typeof window.Audio === 'function') {
+                var audioElem = new Audio();
+                audioElem.src = path;
+                audioElem.play();
+            }
         }
     </script>
 
@@ -234,46 +247,4 @@
         requestAnimationFrame(update);
     </script>
 
-    <script>
-
-        // Initialising the canvas
-        var canvas = document.querySelector('canvas'),
-            ctx = canvas.getContext('2d');
-
-        // Setting the width and height of the canvas
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        // Setting up the letters
-        var letters = 'ALFREDOURIBSNCHZ';
-        letters = letters.split('');
-
-        // Setting up the columns
-        var fontSize = 10,
-            columns = canvas.width / fontSize;
-
-        // Setting up the drops
-        var drops = [];
-        for (var i = 0; i < columns; i++) {
-        drops[i] = 1;
-        }
-
-        // Setting up the draw function
-        function draw() {
-        ctx.fillStyle = 'rgba(0, 0, 0, .1)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        for (var i = 0; i < drops.length; i++) {
-            var text = letters[Math.floor(Math.random() * letters.length)];
-            ctx.fillStyle = '#0f0';
-            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-            drops[i]++;
-            if (drops[i] * fontSize > canvas.height && Math.random() > .95) {
-            drops[i] = 0;
-            }
-        }
-        }
-
-        // Loop the animation
-        setInterval(draw, 33);
-    </script>
 </html>

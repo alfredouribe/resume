@@ -35,7 +35,7 @@
                     break;
         
                     case "download":
-                        $fileName = "files/testFile.pdf";
+                        $fileName = "files/Francisco_Alfredo_Uribe_Sanchez_CV.pdf";
         
                         $results["status"] = "OK";
                         $results["message"] = "<a href='$fileName' target='_blank'>Click here to download</a>";
@@ -197,12 +197,12 @@
             
                     default:
                         $results["status"] = "Error";
-                        $results["message"] = "<a class='text-danger'>Command not found. Try cv --help</a>";
+                        $results["message"] = "<a class='text-danger'>Command not found. Try <b>cv help</b></a>";
                     break;
                 }
             }else{
                 $results["status"] = "Error";
-                $results["message"] = "<a class='text-danger'>Command not found. Try cv --help.</a>";
+                $results["message"] = "<a class='text-danger'>Command not found. Try <b>cv help</b></a>";
             }
         break;
 
@@ -213,7 +213,7 @@
 
         default:
             $results["status"] = "Error";
-            $results["message"] = "<a class='text-danger'>Command not found. Try cv --help.</a>";
+            $results["message"] = "<a class='text-danger'>Command not found. Try <b>cv help</b></a>";
         break;
     }
     
